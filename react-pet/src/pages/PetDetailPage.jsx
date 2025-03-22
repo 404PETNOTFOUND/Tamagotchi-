@@ -1,9 +1,13 @@
+// src/pages/PetDetailPage.js
+
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 import usePetStatus from '../components/PetStatus'; // Import the custom hook
+import PetGif from '../components/PetGif'; // Import the PetGif component
 
 const PetDetailPage = () => {
   const { id } = useParams(); // Get pet ID from the URL
+  const navigate = useNavigate(); 
   const [pet, setPet] = useState(null);
   const [error, setError] = useState(null);
 
@@ -50,52 +54,45 @@ const PetDetailPage = () => {
   if (error) return <div>Error: {error}</div>;
   if (!pet) return <div>Loading pet details...</div>;
 
-  return (
-    <div>
-      {/* a mess */}
-      <h1 className="text-4xl font-bold font-[Press-Start-2P font-normal">{pet.configData?.name || 'No Name'}</h1>
+  // Function to go back to the homepage
+  const goBack = () => {
+    navigate('/'); // Navigate to homepage 
+  };
 
-      {/* Pet Description */}
-      <p className="mt-4 text-lg">{pet.configData?.indexDesc || 'No Description'}</p>
-      <p className="mt-2 text-lg">{pet.configData?.fromEgg || 'No Egg Type'}</p>
+  return (
+    <div className="container">
+      {/* Back Button */}
+      <button onClick={goBack} className="button back-button">
+        Go Back to Homepage
+      </button>
+
+      {/* Pet Name */}
+      <h1 className="pet-name">{pet.configData?.name || 'No Name'}</h1>
+
+      {/* Pet INFO */}
+      <p className="pet-description">{pet.configData?.indexDesc || 'No Description'}</p>
+      <p className="pet-egg">{pet.configData?.fromEgg || 'No Egg Type'}</p>
 
       {/* TEMP GIF */}
-      <div className="mt-6">
-        <div className="tenor-gif-embed" data-postid="2317318051051074411" data-share-method="host" data-aspect-ratio="0.85743" data-width="100%">
-          <a href="https://tenor.com/view/charles-leclerc-staring-smooth-formula-one-ferrari-gif-2317318051051074411">
-            Charles Leclerc Staring GIF
-          </a> from 
-          <a href="https://tenor.com/search/charles+leclerc-gifs">Charles Leclerc GIFs</a>
-        </div>
-        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-      </div>
+      <PetGif />
 
       {/* Pet Status */}
-      <div className="mt-6">
-        <h3 className="text-2xl font-[Press-Start-2P]">Status</h3>
-        <p className="mt-2">{`Hunger Status: ${hungerStatus}`}</p>
-        <p className="mt-2">{`Happiness Status: ${happinessStatus}`}</p>
-        <p className="mt-2">{`Cleanliness Status: ${cleanlinessStatus}`}</p>
+      <div className="status">
+        <h3 className="status-heading">Status</h3>
+        <p>{`Hunger Status: ${hungerStatus}`}</p>
+        <p>{`Happiness Status: ${happinessStatus}`}</p>
+        <p>{`Cleanliness Status: ${cleanlinessStatus}`}</p>
       </div>
 
-      {/* Buttons to interact with the pet */}
-      <div className="mt-6 space-x-4">
-        <button 
-          onClick={feedPet} 
-          className="px-6 py-2 bg-blue-500 text-white font-[Press-Start-2P] rounded-md"
-        >
+ 
+      <div className="button-container">
+        <button onClick={feedPet} className="button">
           Feed Pet
         </button>
-        <button 
-          onClick={playWithPet} 
-          className="px-6 py-2 bg-green-500 text-white font-[Press-Start-2P] rounded-md"
-        >
+        <button onClick={playWithPet} className="button">
           Play with Pet
         </button>
-        <button 
-          onClick={cleanPet} 
-          className="px-6 py-2 bg-yellow-500 text-white font-[Press-Start-2P] rounded-md"
-        >
+        <button onClick={cleanPet} className="button">
           Clean Pet
         </button>
       </div>
