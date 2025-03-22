@@ -1,16 +1,12 @@
 
-const PetDetailsList = ({ pet }) => {
-  if (!pet || !pet.configData) {
-    return <p>Loading pet details...</p>;
-  }
 
-  return (
-    <div>
-      <h1>{pet.configData.name || 'No Name'}</h1>
-      <p>Found in: {pet.configData.indexDesc || 'No Description'}</p>
-      <p>Egg Type: {pet.configData.fromEgg || 'No Egg Type'}</p>
-    </div>
-  );
-};
+// const FeedButton = ({ feedPet, hungerStatus }) => {
+//   return (
+//     <div>
+//       <h3>Hunger Status: {hungerStatus}</h3>
+//       <button onClick={feedPet}>Feed Pet</button>
+//     </div>
+//   );
+// };
 
-export default PetDetailsList;
+// export default FeedButton;

@@ -1,10 +1,9 @@
-/* Import pixel font  */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); 
 
 body {
-  background-color: #c82424; 
   font-family: 'Press Start 2P', cursive; 
-  color: black;
   text-align: center;
   padding: 20px;
   margin: 0;
@@ -46,7 +45,6 @@ body {
   border-radius: 8px;
 }
 
-
 .status {
   margin-top: 30px;
 }
@@ -60,7 +58,6 @@ body {
   font-size: 18px;
   margin-top: 8px;
 }
-
 
 .button-container {
   margin-top: 30px;
@@ -83,4 +80,42 @@ body {
   background-color: #ab605f; 
   box-shadow: none;
   transform: translate(3px, 3px); 
+}
+
+/* Light Mode WIP */
+body.light {
+  background-color: #51ceb1; 
+  color: black;
+  background-image: url('/Tamagotchi-/react-pet/public/images\ /'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Dark Mode WIP */
+body.dark {
+  background-color: #333; 
+  color: white;
+  background-color: #001f3d; 
+  background-image: url('/Tamagotchi-/react-pet/moon.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+button.light {
+  background-color: #b14646;
+}
+
+button.dark {
+  background-color: #444;
+}
+
+
+button.light:hover {
+  background-color: #ab605f;
+}
+
+button.dark:hover {
+  background-color: #666;
 }
