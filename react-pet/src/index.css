@@ -86,7 +86,7 @@ body {
 body.light {
   background-color: #51ceb1; 
   color: black;
-  background-image: url('/Tamagotchi-/react-pet/public/images\ /'); 
+  background-image: url('/react-pet/pet-simulator/public/moon.jpg'); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
