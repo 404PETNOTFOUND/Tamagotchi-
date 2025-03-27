@@ -84,9 +84,9 @@ body {
 
 /* Light Mode WIP */
 body.light {
-  background-color: #51ceb1; 
+  /* background-color: #51ceb1;  */
   color: black;
-  background-image: url('/react-pet/pet-simulator/public/moon.jpg'); 
+  background-image: url('./assets/sun.jpg'); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -94,10 +94,10 @@ body.light {
 
 /* Dark Mode WIP */
 body.dark {
-  background-color: #333; 
+  /* background-color: #333;  */
   color: white;
-  background-color: #001f3d; 
-  background-image: url('/Tamagotchi-/react-pet/moon.jpg'); 
+  /* background-color: #001f3d;  */
+  background-image: url('./assets/moon.jpg'); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
